@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public class TestDao implements ITestDao {
@@ -19,6 +21,14 @@ public class TestDao implements ITestDao {
         Test test = session.get(Test.class, 1);
         return test;
     }
+
+    @Override
+    public List<Test> getTests() {
+        Session session = sessionFactory.getCurrentSession();
+        List<Test> users = session.createCriteria(Test.class).list();
+        return users;
+    }
+
 
     private SessionFactory sessionFactory;
 

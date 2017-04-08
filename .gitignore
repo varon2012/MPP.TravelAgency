@@ -14,7 +14,9 @@ target/
 *.iws
 *.iml
 *.ipr
-out/
+/out/
+/classes/
+/target/
 
 ### NetBeans ###
 nbproject/private/
