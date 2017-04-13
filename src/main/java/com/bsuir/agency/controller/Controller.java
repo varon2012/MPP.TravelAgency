@@ -21,7 +21,7 @@ public class Controller {
         return iTestService.getTest();
     }
 
-    @RequestMapping(value="/index")
+    @RequestMapping(value="/")
     public ModelAndView hello(){
         ModelAndView model = new ModelAndView("index");
         List<String> list = new ArrayList<String>();
