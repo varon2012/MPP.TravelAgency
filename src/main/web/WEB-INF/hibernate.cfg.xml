@@ -12,28 +12,18 @@
 
         <!--<property name="current_session_context_class">thread</property>-->
 
-        <!--<mapping class="com.bsuir.petition.bean.entity.User"/>
-        <mapping class="com.bsuir.petition.bean.entity.City"/>
-        <mapping class="com.bsuir.petition.bean.entity.Country"/>
-        <mapping class="com.bsuir.petition.bean.entity.UserInformation"/>
-        <mapping class="com.bsuir.petition.bean.entity.Role"/>
-        <mapping class="com.bsuir.petition.bean.entity.Category"/>
-        <mapping class="com.bsuir.petition.bean.entity.Petition"/>
-        <mapping class="com.bsuir.petition.bean.entity.Vote"/>
-        <mapping class="com.bsuir.petition.bean.entity.Comment"/>-->
 
-        <mapping class="com.bsuir.agency.bean.Test"/>
         <mapping class="com.bsuir.agency.entity.ExcursionEntity"/>
         <mapping class="com.bsuir.agency.entity.FavouriteEntity"/>
         <mapping class="com.bsuir.agency.entity.HotelEntity"/>
         <mapping class="com.bsuir.agency.entity.InterestingplacesEntity"/>
         <mapping class="com.bsuir.agency.entity.PersonEntity"/>
         <mapping class="com.bsuir.agency.entity.PhotoEntity"/>
-        <mapping class="com.bsuir.agency.entity.RepresentativeinfoEntity"/>
+        <mapping class="com.bsuir.agency.entity.RepresentativeEntity"/>
         <mapping class="com.bsuir.agency.entity.ReviewEntity"/>
         <mapping class="com.bsuir.agency.entity.RoomEntity"/>
         <mapping class="com.bsuir.agency.entity.RoomreservationEntity"/>
         <mapping class="com.bsuir.agency.entity.TourEntity"/>
-        <mapping class="com.bsuir.agency.entity.UserinfoEntity"/>
+        <mapping class="com.bsuir.agency.entity.UserEntity"/>
     </session-factory>
 </hibernate-configuration>

@@ -17,7 +17,7 @@ public class TourEntity {
     private int excursionId;
 
     @Id
-    @Column(name = "tour_id")
+    @Column(name = "tour_id", nullable = false)
     public int getTourId() {
         return tourId;
     }
@@ -27,7 +27,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "views")
+    @Column(name = "views", nullable = false)
     public int getViews() {
         return views;
     }
@@ -37,7 +37,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "fromDate")
+    @Column(name = "fromDate", nullable = false)
     public Timestamp getFromDate() {
         return fromDate;
     }
@@ -47,7 +47,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "toDateTime")
+    @Column(name = "toDateTime", nullable = false)
     public Timestamp getToDateTime() {
         return toDateTime;
     }
@@ -57,7 +57,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "representative_id")
+    @Column(name = "representativeId", nullable = false)
     public int getRepresentativeId() {
         return representativeId;
     }
@@ -67,7 +67,7 @@ public class TourEntity {
     }
 
     @Basic
-    @Column(name = "excursion_id")
+    @Column(name = "excursion_id", nullable = false)
     public int getExcursionId() {
         return excursionId;
     }

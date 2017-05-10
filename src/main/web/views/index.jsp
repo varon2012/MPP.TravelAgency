@@ -10,20 +10,49 @@
 <html>
 <head>
     <title>Title</title>
+    <style name="table_style">
+
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table tr:nth-child(odd){
+            background-color: #FF6565;
+        }
+
+        table tr:hover{
+            background-color: #B77B7B;
+        }
+
+        table tr{
+            width: 100%;
+            background-color: #FAFAFA;
+            transition: background 0.5s ease;
+        }
+
+        td, tr, th{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <table>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Login</th>
+            <th>Phone</th>
+            <th>Role</th>
         </tr>
 
-            <c:forEach  var="user" items="${users}">
-                <tr>
-                    <td>${user.id}</td>
-                    <td>${user.name}</td>
-                </tr>
-            </c:forEach>
+        <c:forEach  var="user" items="${users}">
+            <tr>
+                <td>${user.userId}</td>
+                <td>${user.login}</td>
+                <td>${user.phone}</td>
+                <td>${user.role}</td>
+            </tr>
+        </c:forEach>
     </table>
 </body>
 </html>

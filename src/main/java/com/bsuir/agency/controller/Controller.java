@@ -1,40 +1,25 @@
 package com.bsuir.agency.controller;
 
-
-import com.bsuir.agency.bean.Test;
-
-import com.bsuir.agency.service.IService;
+import com.bsuir.agency.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
 public class Controller {
-
-
-    @RequestMapping(value="/hello")
-    public Test HelloVRot() {
-        return iTestService.getTest();
-    }
 
     @RequestMapping(value="/")
     public ModelAndView hello(){
         ModelAndView model = new ModelAndView("index");
-        List<String> list = new ArrayList<String>();
-        list.add("asfasf");
-        list.add("122423");
-        model.addObject("users", iTestService.getTests());
+        model.addObject("users", iPersonService.getAllPersons());
         return model;
     }
 
     @Autowired
-    public void setiTestService(IService iTestService) {
-        this.iTestService= iTestService;
+    public void setiTestService(PersonService iPersonService) {
+        this.iPersonService= iPersonService;
     }
 
-    private IService iTestService;
+    private PersonService iPersonService;
 }

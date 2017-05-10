@@ -15,7 +15,7 @@ public class HotelEntity {
     private int representativeId;
 
     @Id
-    @Column(name = "hotel_id")
+    @Column(name = "hotel_id", nullable = false)
     public int getHotelId() {
         return hotelId;
     }
@@ -25,7 +25,7 @@ public class HotelEntity {
     }
 
     @Basic
-    @Column(name = "stars")
+    @Column(name = "stars", nullable = false)
     public String getStars() {
         return stars;
     }
@@ -35,7 +35,7 @@ public class HotelEntity {
     }
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = -1)
     public String getName() {
         return name;
     }
@@ -45,7 +45,7 @@ public class HotelEntity {
     }
 
     @Basic
-    @Column(name = "address")
+    @Column(name = "address", nullable = false, length = -1)
     public String getAddress() {
         return address;
     }
@@ -55,7 +55,7 @@ public class HotelEntity {
     }
 
     @Basic
-    @Column(name = "representative_id")
+    @Column(name = "representativeId", nullable = false)
     public int getRepresentativeId() {
         return representativeId;
     }

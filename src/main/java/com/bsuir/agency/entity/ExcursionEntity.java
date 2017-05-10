@@ -14,7 +14,7 @@ public class ExcursionEntity {
     private int representativeId;
 
     @Id
-    @Column(name = "excursion_id")
+    @Column(name = "excursion_id", nullable = false)
     public int getExcursionId() {
         return excursionId;
     }
@@ -24,7 +24,7 @@ public class ExcursionEntity {
     }
 
     @Basic
-    @Column(name = "description")
+    @Column(name = "description", nullable = false, length = -1)
     public String getDescription() {
         return description;
     }
@@ -34,7 +34,7 @@ public class ExcursionEntity {
     }
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = -1)
     public String getName() {
         return name;
     }
@@ -44,7 +44,7 @@ public class ExcursionEntity {
     }
 
     @Basic
-    @Column(name = "representative_id")
+    @Column(name = "representativeId", nullable = false)
     public int getRepresentativeId() {
         return representativeId;
     }

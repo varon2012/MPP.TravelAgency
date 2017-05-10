@@ -15,7 +15,7 @@ public class ReviewEntity {
     private int tourId;
 
     @Id
-    @Column(name = "review_id")
+    @Column(name = "review_id", nullable = false)
     public int getReviewId() {
         return reviewId;
     }
@@ -25,7 +25,7 @@ public class ReviewEntity {
     }
 
     @Basic
-    @Column(name = "text")
+    @Column(name = "text", nullable = false, length = -1)
     public String getText() {
         return text;
     }
@@ -35,7 +35,7 @@ public class ReviewEntity {
     }
 
     @Basic
-    @Column(name = "mark")
+    @Column(name = "mark", nullable = false)
     public String getMark() {
         return mark;
     }
@@ -45,7 +45,7 @@ public class ReviewEntity {
     }
 
     @Basic
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     public int getUserId() {
         return userId;
     }
@@ -55,7 +55,7 @@ public class ReviewEntity {
     }
 
     @Basic
-    @Column(name = "tour_id")
+    @Column(name = "tour_id", nullable = false)
     public int getTourId() {
         return tourId;
     }
