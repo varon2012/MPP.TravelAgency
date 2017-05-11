@@ -1,15 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url"/>
-    <property name="connection.driver_class"/>
-    <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="show_sql">true</property>
+    <property name="hbm2ddl.auto">update</property>
+    <property name="connection.url">jdbc:mysql://localhost:6060/travel_agency?serverTimezone=UTC</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.current_session_context_class">thread</property>
 
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
+
+    <mapping class="com.bsuir.agency.entity.ExcursionEntity"/>
+    <mapping class="com.bsuir.agency.entity.FavouriteEntity"/>
+    <mapping class="com.bsuir.agency.entity.HotelEntity"/>
+    <mapping class="com.bsuir.agency.entity.InterestingplacesEntity"/>
+    <mapping class="com.bsuir.agency.entity.PersonEntity"/>
+    <mapping class="com.bsuir.agency.entity.PhotoEntity"/>
+    <mapping class="com.bsuir.agency.entity.RepresentativeEntity"/>
+    <mapping class="com.bsuir.agency.entity.ReviewEntity"/>
+    <mapping class="com.bsuir.agency.entity.RoomEntity"/>
+    <mapping class="com.bsuir.agency.entity.RoomreservationEntity"/>
+    <mapping class="com.bsuir.agency.entity.TourEntity"/>
+    <mapping class="com.bsuir.agency.entity.UserEntity"/>
   </session-factory>
 </hibernate-configuration>

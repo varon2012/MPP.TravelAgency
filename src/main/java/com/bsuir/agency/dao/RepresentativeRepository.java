@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public interface RepresentativeRepository {
+public interface RepresentativeRepository extends BaseRepository {
     Iterable<RepresentativeEntity> findAll();
     RepresentativeEntity findById(int id);
     RepresentativeEntity findByPersonId(int id);

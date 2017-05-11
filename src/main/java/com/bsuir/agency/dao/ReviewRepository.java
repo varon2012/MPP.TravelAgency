@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public interface ReviewRepository {
+public interface ReviewRepository extends BaseRepository{
     Iterable<ReviewEntity> findAll();
     ReviewEntity findReviewById(int id);
     Iterable<ReviewEntity> findReviewsByUserId(int id);

@@ -68,4 +68,5 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
         Session session = getCurrentSession();
         session.delete(userEntity);
     }
+
 }

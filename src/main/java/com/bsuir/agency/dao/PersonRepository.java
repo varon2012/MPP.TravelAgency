@@ -1,6 +1,7 @@
 package com.bsuir.agency.dao;
 
 import com.bsuir.agency.entity.PersonEntity;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public interface PersonRepository {
+public interface PersonRepository extends BaseRepository {
     List<PersonEntity> getAllUsers();
     PersonEntity findById(int id);
     PersonEntity findByLogin(String login);

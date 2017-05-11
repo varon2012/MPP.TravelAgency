@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public interface UserRepository {
+public interface UserRepository extends BaseRepository{
     Iterable<UserEntity> findAll();
     UserEntity findById(int id);
     UserEntity findPersonId(int id);
