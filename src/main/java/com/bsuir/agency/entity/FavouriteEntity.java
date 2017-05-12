@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Олег Пятко on 13.04.2017.
  */
 @Entity
-@Table(name = "favourite", schema = "travel_agency", catalog = "")
+@Table(name = "favourite", schema = "travel_agency")
 public class FavouriteEntity {
     private int favouriteId;
     private int userId;
@@ -19,6 +19,9 @@ public class FavouriteEntity {
     }
 
     public void setFavouriteId(int favouriteId) {
+        if (favouriteId < 1){
+            throw new IllegalArgumentException();
+        }
         this.favouriteId = favouriteId;
     }
 
@@ -29,6 +32,9 @@ public class FavouriteEntity {
     }
 
     public void setUserId(int userId) {
+        if (userId < 1){
+            throw new IllegalArgumentException();
+        }
         this.userId = userId;
     }
 
@@ -39,6 +45,9 @@ public class FavouriteEntity {
     }
 
     public void setTourId(int tourId) {
+        if (tourId < 1){
+            throw new IllegalArgumentException();
+        }
         this.tourId = tourId;
     }
 

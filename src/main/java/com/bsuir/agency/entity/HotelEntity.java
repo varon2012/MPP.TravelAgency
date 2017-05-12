@@ -21,6 +21,9 @@ public class HotelEntity {
     }
 
     public void setHotelId(int hotelId) {
+        if (hotelId < 1){
+            throw new IllegalArgumentException();
+        }
         this.hotelId = hotelId;
     }
 
@@ -61,6 +64,9 @@ public class HotelEntity {
     }
 
     public void setRepresentativeId(int representativeId) {
+        if (representativeId < 1){
+            throw new IllegalArgumentException();
+        }
         this.representativeId = representativeId;
     }
 

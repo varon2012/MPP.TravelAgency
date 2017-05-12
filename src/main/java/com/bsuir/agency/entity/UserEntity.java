@@ -18,6 +18,9 @@ public class UserEntity {
     }
 
     public void setUserId(int userId) {
+        if (userId < 1){
+            throw new IllegalArgumentException();
+        }
         this.userId = userId;
     }
 
@@ -28,6 +31,9 @@ public class UserEntity {
     }
 
     public void setUserInfoId(int userInfoId) {
+        if (userInfoId < 1){
+            throw new IllegalArgumentException();
+        }
         this.userInfoId = userInfoId;
     }
 

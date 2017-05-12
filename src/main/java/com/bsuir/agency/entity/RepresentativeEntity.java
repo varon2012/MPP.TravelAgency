@@ -18,6 +18,9 @@ public class RepresentativeEntity {
     }
 
     public void setRepresentativeUserId(int representativeUserId) {
+        if (representativeUserId < 1){
+            throw new IllegalArgumentException();
+        }
         this.representativeUserId = representativeUserId;
     }
 
@@ -28,6 +31,9 @@ public class RepresentativeEntity {
     }
 
     public void setRepresentativeId(int representativeId) {
+        if (representativeId < 1){
+            throw new IllegalArgumentException();
+        }
         this.representativeId = representativeId;
     }
 

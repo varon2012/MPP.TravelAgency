@@ -22,6 +22,9 @@ public class RoomreservationEntity {
     }
 
     public void setRoomReservationId(int roomReservationId) {
+        if (roomReservationId < 1){
+            throw new IllegalArgumentException();
+        }
         this.roomReservationId = roomReservationId;
     }
 
@@ -62,6 +65,9 @@ public class RoomreservationEntity {
     }
 
     public void setUserId(int userId) {
+        if (userId < 1){
+            throw new IllegalArgumentException();
+        }
         this.userId = userId;
     }
 

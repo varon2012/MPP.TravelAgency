@@ -23,6 +23,9 @@ public class TourEntity {
     }
 
     public void setTourId(int tourId) {
+        if (tourId < 1){
+            throw new IllegalArgumentException();
+        }
         this.tourId = tourId;
     }
 
@@ -33,6 +36,9 @@ public class TourEntity {
     }
 
     public void setViews(int views) {
+        if (views < 1){
+            throw new IllegalArgumentException();
+        }
         this.views = views;
     }
 

@@ -21,6 +21,9 @@ public class PersonEntity {
     }
 
     public void setUserId(int userId) {
+        if (userId < 1){
+            throw new IllegalArgumentException();
+        }
         this.userId = userId;
     }
 

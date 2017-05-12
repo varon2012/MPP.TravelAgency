@@ -19,6 +19,9 @@ public class InterestingplacesEntity {
     }
 
     public void setInterestingPlaceId(int interestingPlaceId) {
+        if (interestingPlaceId < 1){
+            throw new IllegalArgumentException();
+        }
         this.interestingPlaceId = interestingPlaceId;
     }
 
@@ -39,6 +42,9 @@ public class InterestingplacesEntity {
     }
 
     public void setExcursionId(int excursionId) {
+        if (excursionId < 1){
+            throw new IllegalArgumentException();
+        }
         this.excursionId = excursionId;
     }
 

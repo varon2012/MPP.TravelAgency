@@ -21,6 +21,9 @@ public class PhotoEntity {
     }
 
     public void setPhotoId(int photoId) {
+        if (photoId < 1){
+            throw new IllegalArgumentException();
+        }
         this.photoId = photoId;
     }
 
@@ -41,6 +44,9 @@ public class PhotoEntity {
     }
 
     public void setRoomId(Integer roomId) {
+        if (roomId < 1){
+            throw new IllegalArgumentException();
+        }
         this.roomId = roomId;
     }
 
@@ -61,6 +67,9 @@ public class PhotoEntity {
     }
 
     public void setUserId(int userId) {
+        if (userId < 1){
+            throw new IllegalArgumentException();
+        }
         this.userId = userId;
     }
 

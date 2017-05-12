@@ -20,6 +20,9 @@ public class ExcursionEntity {
     }
 
     public void setExcursionId(int excursionId) {
+        if(excursionId < 0){
+            throw new IllegalArgumentException();
+        }
         this.excursionId = excursionId;
     }
 
@@ -49,7 +52,11 @@ public class ExcursionEntity {
         return representativeId;
     }
 
-    public void setRepresentativeId(int representativeId) {
+    public void setRepresentativeId(int representativeId)
+    {
+        if(representativeId < 0){
+            throw new IllegalArgumentException();
+        }
         this.representativeId = representativeId;
     }
 

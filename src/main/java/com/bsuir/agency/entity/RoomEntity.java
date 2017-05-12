@@ -21,6 +21,9 @@ public class RoomEntity {
     }
 
     public void setRoomId(int roomId) {
+        if (roomId < 1){
+            throw new IllegalArgumentException();
+        }
         this.roomId = roomId;
     }
 
@@ -41,6 +44,9 @@ public class RoomEntity {
     }
 
     public void setRoomNumber(int roomNumber) {
+        if (roomNumber < 1){
+            throw new IllegalArgumentException();
+        }
         this.roomNumber = roomNumber;
     }
 
@@ -51,6 +57,9 @@ public class RoomEntity {
     }
 
     public void setHotelId(int hotelId) {
+        if (hotelId < 1){
+            throw new IllegalArgumentException();
+        }
         this.hotelId = hotelId;
     }
 
