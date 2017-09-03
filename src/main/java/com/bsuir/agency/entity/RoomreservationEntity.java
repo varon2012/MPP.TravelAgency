@@ -14,7 +14,6 @@ public class RoomreservationEntity {
     private Date toDateTime;
     private int roomId;
     private int userId;
-    private RoomEntity roomByRoomId;
 
     @Id
     @Column(name = "room_reservation_id", nullable = false)

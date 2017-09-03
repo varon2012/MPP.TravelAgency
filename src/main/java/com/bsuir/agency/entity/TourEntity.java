@@ -15,7 +15,6 @@ public class TourEntity {
     private Timestamp toDateTime;
     private int representativeId;
     private int excursionId;
-    private ExcursionEntity excursionByExcursionId;
 
     @Id
     @Column(name = "tour_id", nullable = false)
