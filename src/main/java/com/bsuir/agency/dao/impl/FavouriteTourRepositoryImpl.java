@@ -22,13 +22,13 @@ public class FavouriteTourRepositoryImpl extends BaseRepositoryImpl implements F
         Session session = getCurrentSession();
         Query query = session.createQuery("from FavouriteEntity h where h.id = :id");
         query.setParameter("id", id);
-        List<FavouriteEntity> excursionEntities = query.list();
+        List<FavouriteEntity> favouriteEntities = query.list();
 
-        if (excursionEntities.size() == 0){
+        if (favouriteEntities.size() == 0){
             return null;
         }
 
-        return excursionEntities.get(0);
+        return favouriteEntities.get(0);
     }
 
     @Override

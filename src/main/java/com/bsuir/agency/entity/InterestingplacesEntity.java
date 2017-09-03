@@ -11,7 +11,6 @@ public class InterestingplacesEntity {
     private int interestingPlaceId;
     private String description;
     private int excursionId;
-    private ExcursionEntity excursionByExcursionId;
 
     @Id
     @Column(name = "interesting_place_id", nullable = false)
