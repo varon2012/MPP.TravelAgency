@@ -13,7 +13,6 @@ public class RoomEntity {
     private BigDecimal price;
     private int roomNumber;
     private int hotelId;
-    private HotelEntity hotelByHotelId;
 
     @Id
     @Column(name = "room_id", nullable = false)

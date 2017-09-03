@@ -12,8 +12,7 @@ public class PhotoEntity {
     private String url;
     private Integer roomId;
     private Integer interestingPlaceId;
-    private int userId;
-    private InterestingplacesEntity interestingplacesByInterestingPlaceId;
+    private Integer userId;
 
     @Id
     @Column(name = "photo_id", nullable = false)
@@ -62,12 +61,12 @@ public class PhotoEntity {
     }
 
     @Basic
-    @Column(name = "user_id")
-    public int getUserId() {
+    @Column(name = "user_id", nullable = true)
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         if (userId < 0){
             throw new IllegalArgumentException();
         }
