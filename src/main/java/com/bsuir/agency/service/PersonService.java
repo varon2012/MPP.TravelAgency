@@ -1,6 +1,7 @@
 package com.bsuir.agency.service;
 
 import com.bsuir.agency.entity.PersonEntity;
+import com.bsuir.agency.entity.RoleEnum;
 
 import java.util.List;
 
@@ -9,4 +10,11 @@ import java.util.List;
  */
 public interface PersonService {
     List<PersonEntity> getAllPersons();
+    PersonEntity findById(int id);
+    PersonEntity findByLogin(String login);
+    PersonEntity findByEmail(String email);
+    Iterable<PersonEntity> findByRole(RoleEnum role);
+    void create(PersonEntity personEntity);
+    void update(PersonEntity personEntity);
+    void delete(PersonEntity personEntity);
 }
