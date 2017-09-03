@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface HotelRepository extends BaseRepository {
     Iterable<HotelEntity> findAll();
     HotelEntity findById(int id);
+    HotelEntity findByName(String name);
     Iterable<HotelEntity> findByStars(int stars);
     Iterable<HotelEntity> findByRepresentativeId(int id);
     void create(HotelEntity hotelEntity);

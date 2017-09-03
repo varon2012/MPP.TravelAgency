@@ -9,7 +9,7 @@
     <mvc:resources mapping="/resources/**" location="/" />
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:6060/travel_agency?serverTimezone=UTC"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/travel_agency?serverTimezone=UTC"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
     </bean>
@@ -21,7 +21,7 @@
         <property name="configLocation" value="/WEB-INF/hibernate.cfg.xml" />
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:6060/travel_agency</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/travel_agency</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>

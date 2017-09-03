@@ -14,22 +14,23 @@ public class RoomreservationEntity {
     private Date toDateTime;
     private int roomId;
     private int userId;
+    private RoomEntity roomByRoomId;
 
     @Id
-    @Column(name = "room_reservation_id")
+    @Column(name = "room_reservation_id", nullable = false)
     public int getRoomReservationId() {
         return roomReservationId;
     }
 
     public void setRoomReservationId(int roomReservationId) {
-        if (roomReservationId < 1){
+        if (roomReservationId < 0){
             throw new IllegalArgumentException();
         }
         this.roomReservationId = roomReservationId;
     }
 
     @Basic
-    @Column(name = "fromDate")
+    @Column(name = "fromDate", nullable = false)
     public Date getFromDate() {
         return fromDate;
     }
@@ -39,7 +40,7 @@ public class RoomreservationEntity {
     }
 
     @Basic
-    @Column(name = "toDateTime")
+    @Column(name = "toDateTime", nullable = false)
     public Date getToDateTime() {
         return toDateTime;
     }
@@ -49,23 +50,26 @@ public class RoomreservationEntity {
     }
 
     @Basic
-    @Column(name = "room_id")
+    @Column(name = "room_id", nullable = false)
     public int getRoomId() {
         return roomId;
     }
 
     public void setRoomId(int roomId) {
+        if (roomId < 0){
+            throw new IllegalArgumentException();
+        }
         this.roomId = roomId;
     }
 
     @Basic
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     public int getUserId() {
         return userId;
     }
 
     public void setUserId(int userId) {
-        if (userId < 1){
+        if (userId < 0){
             throw new IllegalArgumentException();
         }
         this.userId = userId;

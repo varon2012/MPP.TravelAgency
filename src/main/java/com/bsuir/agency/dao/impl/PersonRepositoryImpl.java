@@ -1,6 +1,7 @@
 package com.bsuir.agency.dao.impl;
 
 import com.bsuir.agency.entity.PersonEntity;
+import com.bsuir.agency.entity.RoleEnum;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -50,7 +51,20 @@ public class PersonRepositoryImpl extends BaseRepositoryImpl implements com.bsui
     }
 
     @Override
-    public Iterable<PersonEntity> findByRole(String role) {
+    public PersonEntity findByEmail(String email) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from PersonEntity p where p.email = :email");
+        query.setParameter("email", email);
+        List<PersonEntity> personEntities = query.list();
+        if (personEntities.size() == 0){
+            return null;
+        }
+
+        return personEntities.get(0);
+    }
+
+    @Override
+    public Iterable<PersonEntity> findByRole(RoleEnum role) {
         Session session = getCurrentSession();
         Query query = session.createQuery("from PersonEntity p where p.role = :role");
         query.setParameter("role", role);

@@ -1,5 +1,6 @@
 package com.bsuir.agency.entity;
 
+import javax.management.relation.Role;
 import javax.persistence.*;
 
 /**
@@ -9,36 +10,38 @@ import javax.persistence.*;
 @Table(name = "person", schema = "travel_agency", catalog = "")
 public class PersonEntity {
     private int userId;
-    private String role;
+    private RoleEnum role;
     private String passwordHash;
     private String login;
     private String phone;
+    private String email;
 
     @Id
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     public int getUserId() {
         return userId;
     }
 
     public void setUserId(int userId) {
-        if (userId < 1){
+        if (userId < 0){
             throw new IllegalArgumentException();
         }
         this.userId = userId;
     }
 
     @Basic
-    @Column(name = "role")
-    public String getRole() {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    public RoleEnum getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(RoleEnum role) {
         this.role = role;
     }
 
     @Basic
-    @Column(name = "passwordHash")
+    @Column(name = "passwordHash", nullable = false, length = 30)
     public String getPasswordHash() {
         return passwordHash;
     }
@@ -48,7 +51,7 @@ public class PersonEntity {
     }
 
     @Basic
-    @Column(name = "login")
+    @Column(name = "login", nullable = false, length = 20)
     public String getLogin() {
         return login;
     }
@@ -58,7 +61,7 @@ public class PersonEntity {
     }
 
     @Basic
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false, length = 20)
     public String getPhone() {
         return phone;
     }
@@ -91,5 +94,15 @@ public class PersonEntity {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "email", nullable = false, length = 100)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

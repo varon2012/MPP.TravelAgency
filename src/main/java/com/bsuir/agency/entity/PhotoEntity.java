@@ -13,22 +13,23 @@ public class PhotoEntity {
     private Integer roomId;
     private Integer interestingPlaceId;
     private int userId;
+    private InterestingplacesEntity interestingplacesByInterestingPlaceId;
 
     @Id
-    @Column(name = "photo_id")
+    @Column(name = "photo_id", nullable = false)
     public int getPhotoId() {
         return photoId;
     }
 
     public void setPhotoId(int photoId) {
-        if (photoId < 1){
+        if (photoId < 0){
             throw new IllegalArgumentException();
         }
         this.photoId = photoId;
     }
 
     @Basic
-    @Column(name = "url")
+    @Column(name = "url", nullable = false, length = -1)
     public String getUrl() {
         return url;
     }
@@ -38,20 +39,20 @@ public class PhotoEntity {
     }
 
     @Basic
-    @Column(name = "room_id")
+    @Column(name = "room_id", nullable = true)
     public Integer getRoomId() {
         return roomId;
     }
 
     public void setRoomId(Integer roomId) {
-        if (roomId < 1){
+        if (roomId < 0){
             throw new IllegalArgumentException();
         }
         this.roomId = roomId;
     }
 
     @Basic
-    @Column(name = "interesting_place_id")
+    @Column(name = "interesting_place_id", nullable = true)
     public Integer getInterestingPlaceId() {
         return interestingPlaceId;
     }
@@ -67,7 +68,7 @@ public class PhotoEntity {
     }
 
     public void setUserId(int userId) {
-        if (userId < 1){
+        if (userId < 0){
             throw new IllegalArgumentException();
         }
         this.userId = userId;

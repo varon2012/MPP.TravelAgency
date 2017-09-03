@@ -1,7 +1,7 @@
 package com.bsuir.agency.dao.impl;
 
 import com.bsuir.agency.dao.RepresentativeRepository;
-import com.bsuir.agency.entity.RepresentativeEntity;
+import com.bsuir.agency.entity.RepresentativeinfoEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
@@ -17,19 +17,19 @@ import java.util.List;
 @Transactional
 public class RepresentativeRepositoryImpl extends BaseRepositoryImpl implements RepresentativeRepository {
     @Override
-    public Iterable<RepresentativeEntity> findAll() {
+    public Iterable<RepresentativeinfoEntity> findAll() {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from RepresentativeEntity");
-        Iterable<RepresentativeEntity> list = query.list();
+        Query query = session.createQuery("from RepresentativeinfoEntity");
+        Iterable<RepresentativeinfoEntity> list = query.list();
         return list;
     }
 
     @Override
-    public RepresentativeEntity findById(int id) {
+    public RepresentativeinfoEntity findById(int id) {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from RepresentativeEntity r where r.representativeId = :id");
+        Query query = session.createQuery("from RepresentativeinfoEntity r where r.representativeId = :id");
         query.setParameter("id", id);
-        List<RepresentativeEntity> list = query.list();
+        List<RepresentativeinfoEntity> list = query.list();
 
         if (list.size() == 0){
             return null;
@@ -39,11 +39,11 @@ public class RepresentativeRepositoryImpl extends BaseRepositoryImpl implements 
     }
 
     @Override
-    public RepresentativeEntity findByPersonId(int id) {
+    public RepresentativeinfoEntity findByPersonId(int id) {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from RepresentativeEntity r where r.representativeUserId = :id");
+        Query query = session.createQuery("from RepresentativeinfoEntity r where r.representativeUserId = :id");
         query.setParameter("id", id);
-        List<RepresentativeEntity> list = query.list();
+        List<RepresentativeinfoEntity> list = query.list();
 
         if (list.size() == 0){
             return null;
@@ -53,38 +53,66 @@ public class RepresentativeRepositoryImpl extends BaseRepositoryImpl implements 
     }
 
     @Override
-    public Iterable<RepresentativeEntity> findByCountry(String country) {
+    public RepresentativeinfoEntity findByOrgNumber(String orgNumber) {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from RepresentativeEntity r where r.country = :country");
+        Query query = session.createQuery("from RepresentativeinfoEntity r where r.organizationNumber = :id");
+        query.setParameter("id", orgNumber);
+        List<RepresentativeinfoEntity> list = query.list();
+
+        if (list.size() == 0){
+            return null;
+        }
+
+        return list.get(0);
+    }
+
+    @Override
+    public RepresentativeinfoEntity findByOrgName(String orgName) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from RepresentativeinfoEntity r where r.organizationName = :name");
+        query.setParameter("name", orgName);
+        List<RepresentativeinfoEntity> list = query.list();
+
+        if (list.size() == 0){
+            return null;
+        }
+
+        return list.get(0);
+    }
+
+    @Override
+    public Iterable<RepresentativeinfoEntity> findByCountry(String country) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from RepresentativeinfoEntity r where r.country = :country");
         query.setParameter("country", country);
-        Iterable<RepresentativeEntity> list = query.list();
+        Iterable<RepresentativeinfoEntity> list = query.list();
         return list;
     }
 
     @Override
-    public Iterable<RepresentativeEntity> findByCity(String city) {
+    public Iterable<RepresentativeinfoEntity> findByCity(String city) {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from RepresentativeEntity r where r.city = :city");
+        Query query = session.createQuery("from RepresentativeinfoEntity r where r.city = :city");
         query.setParameter("city", city);
-        Iterable<RepresentativeEntity> list = query.list();
+        Iterable<RepresentativeinfoEntity> list = query.list();
         return list;
     }
 
     @Override
-    public void create(RepresentativeEntity representativeEntity) {
+    public void create(RepresentativeinfoEntity RepresentativeinfoEntity) {
         Session session = getCurrentSession();
-        session.save(representativeEntity);
+        session.save(RepresentativeinfoEntity);
     }
 
     @Override
-    public void update(RepresentativeEntity representativeEntity) {
+    public void update(RepresentativeinfoEntity RepresentativeinfoEntity) {
         Session session = getCurrentSession();
-        session.update(representativeEntity);
+        session.update(RepresentativeinfoEntity);
     }
 
     @Override
-    public void delete(RepresentativeEntity representativeEntity) {
+    public void delete(RepresentativeinfoEntity RepresentativeinfoEntity) {
         Session session = getCurrentSession();
-        session.delete(representativeEntity);
+        session.delete(RepresentativeinfoEntity);
     }
 }

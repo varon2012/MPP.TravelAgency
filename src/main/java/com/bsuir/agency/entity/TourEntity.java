@@ -15,6 +15,7 @@ public class TourEntity {
     private Timestamp toDateTime;
     private int representativeId;
     private int excursionId;
+    private ExcursionEntity excursionByExcursionId;
 
     @Id
     @Column(name = "tour_id", nullable = false)
@@ -23,7 +24,7 @@ public class TourEntity {
     }
 
     public void setTourId(int tourId) {
-        if (tourId < 1){
+        if (tourId < 0){
             throw new IllegalArgumentException();
         }
         this.tourId = tourId;
@@ -36,7 +37,7 @@ public class TourEntity {
     }
 
     public void setViews(int views) {
-        if (views < 1){
+        if (views < 0){
             throw new IllegalArgumentException();
         }
         this.views = views;
@@ -69,6 +70,9 @@ public class TourEntity {
     }
 
     public void setRepresentativeId(int representativeId) {
+        if (representativeId < 0){
+            throw new IllegalArgumentException();
+        }
         this.representativeId = representativeId;
     }
 
@@ -79,6 +83,9 @@ public class TourEntity {
     }
 
     public void setExcursionId(int excursionId) {
+        if (excursionId < 0){
+            throw new IllegalArgumentException();
+        }
         this.excursionId = excursionId;
     }
 

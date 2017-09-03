@@ -1,6 +1,6 @@
 package com.bsuir.agency.dao;
 
-import com.bsuir.agency.entity.RepresentativeEntity;
+import com.bsuir.agency.entity.RepresentativeinfoEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,12 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface RepresentativeRepository extends BaseRepository {
-    Iterable<RepresentativeEntity> findAll();
-    RepresentativeEntity findById(int id);
-    RepresentativeEntity findByPersonId(int id);
-    Iterable<RepresentativeEntity> findByCountry(String country);
-    Iterable<RepresentativeEntity> findByCity(String city);
-    void create(RepresentativeEntity representativeEntity);
-    void update(RepresentativeEntity representativeEntity);
-    void delete(RepresentativeEntity representativeEntity);
+    Iterable<RepresentativeinfoEntity> findAll();
+    RepresentativeinfoEntity findById(int id);
+    RepresentativeinfoEntity findByPersonId(int id);
+    RepresentativeinfoEntity findByOrgNumber(String orgNumber);
+    RepresentativeinfoEntity findByOrgName(String orgName);
+    Iterable<RepresentativeinfoEntity> findByCountry(String country);
+    Iterable<RepresentativeinfoEntity> findByCity(String city);
+    void create(RepresentativeinfoEntity representativeEntity);
+    void update(RepresentativeinfoEntity representativeEntity);
+    void delete(RepresentativeinfoEntity representativeEntity);
 }

@@ -16,7 +16,7 @@ public class ExcursionEntityTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void setExcursionId_minusRepresentativeId_noException_throwsIllegalArgumentException(){
+    public void setRepresentativeId_minusRepresentativeId_noException_throwsIllegalArgumentException(){
         ExcursionEntity excursionEntity = new ExcursionEntity();
         excursionEntity.setRepresentativeId(-1);
     }

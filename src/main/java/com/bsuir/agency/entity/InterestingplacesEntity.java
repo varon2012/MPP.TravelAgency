@@ -11,22 +11,23 @@ public class InterestingplacesEntity {
     private int interestingPlaceId;
     private String description;
     private int excursionId;
+    private ExcursionEntity excursionByExcursionId;
 
     @Id
-    @Column(name = "interesting_place_id")
+    @Column(name = "interesting_place_id", nullable = false)
     public int getInterestingPlaceId() {
         return interestingPlaceId;
     }
 
     public void setInterestingPlaceId(int interestingPlaceId) {
-        if (interestingPlaceId < 1){
+        if (interestingPlaceId < 0){
             throw new IllegalArgumentException();
         }
         this.interestingPlaceId = interestingPlaceId;
     }
 
     @Basic
-    @Column(name = "description")
+    @Column(name = "description", nullable = false, length = -1)
     public String getDescription() {
         return description;
     }
@@ -36,13 +37,13 @@ public class InterestingplacesEntity {
     }
 
     @Basic
-    @Column(name = "excursion_id")
+    @Column(name = "excursion_id", nullable = false)
     public int getExcursionId() {
         return excursionId;
     }
 
     public void setExcursionId(int excursionId) {
-        if (excursionId < 1){
+        if (excursionId < 0){
             throw new IllegalArgumentException();
         }
         this.excursionId = excursionId;

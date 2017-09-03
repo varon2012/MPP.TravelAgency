@@ -1,7 +1,7 @@
 package com.bsuir.agency.dao.impl;
 
 import com.bsuir.agency.dao.UserRepository;
-import com.bsuir.agency.entity.UserEntity;
+import com.bsuir.agency.entity.UserinfoEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
@@ -16,19 +16,19 @@ import java.util.List;
 @Transactional
 public class UserRepositoryImpl extends BaseRepositoryImpl implements UserRepository {
     @Override
-    public Iterable<UserEntity> findAll() {
+    public Iterable<UserinfoEntity> findAll() {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from UserEntity");
-        Iterable<UserEntity> entities = query.list();
+        Query query = session.createQuery("from UserinfoEntity");
+        Iterable<UserinfoEntity> entities = query.list();
         return entities;
     }
 
     @Override
-    public UserEntity findById(int id) {
+    public UserinfoEntity findById(int id) {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from UserEntity u where u.userInfoId = :id");
+        Query query = session.createQuery("from UserinfoEntity u where u.userInfoId = :id");
         query.setParameter("id", id);
-        List<UserEntity> entities = query.list();
+        List<UserinfoEntity> entities = query.list();
 
         if (entities.size() == 0){
             return null;
@@ -38,11 +38,11 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
     }
 
     @Override
-    public UserEntity findPersonId(int id) {
+    public UserinfoEntity findByPersonId(int id) {
         Session session = getCurrentSession();
-        Query query = session.createQuery("from UserEntity u where u.userId = :id");
+        Query query = session.createQuery("from UserinfoEntity u where u.userId = :id");
         query.setParameter("id", id);
-        List<UserEntity> entities = query.list();
+        List<UserinfoEntity> entities = query.list();
 
         if (entities.size() == 0){
             return null;
@@ -52,19 +52,77 @@ public class UserRepositoryImpl extends BaseRepositoryImpl implements UserReposi
     }
 
     @Override
-    public void create(UserEntity userEntity) {
+    public Iterable<UserinfoEntity> findByName(String name) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from UserinfoEntity u where u.name = :name");
+        query.setParameter("name", name);
+        Iterable<UserinfoEntity> entities = query.list();
+        return entities;
+    }
+
+    @Override
+    public Iterable<UserinfoEntity> findBySurname(String surname) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from UserinfoEntity u where u.surname = :surname");
+        query.setParameter("surname", surname);
+        Iterable<UserinfoEntity> entities = query.list();
+        return entities;
+    }
+
+    @Override
+    public Iterable<UserinfoEntity> findByPatronymic(String patronymic) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from UserinfoEntity u where u.patronymic = :patronymic");
+        query.setParameter("patronymic", patronymic);
+        Iterable<UserinfoEntity> entities = query.list();
+        return entities;
+    }
+
+    @Override
+    public Iterable<UserinfoEntity> findByNameAndSurname(String name, String surname) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from UserinfoEntity u where u.name = :name and u.surname = :surname");
+        query.setParameter("name", name);
+        query.setParameter("surname", surname);
+        Iterable<UserinfoEntity> entities = query.list();
+        return entities;
+    }
+
+    @Override
+    public Iterable<UserinfoEntity> findByNameAndPatronymic(String name, String patronymic) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from UserinfoEntity u where u.name = :name and u.patronymic = :patronymic");
+        query.setParameter("name", name);
+        query.setParameter("patronymic", patronymic);
+        Iterable<UserinfoEntity> entities = query.list();
+        return entities;
+    }
+
+    @Override
+    public Iterable<UserinfoEntity> findByFullNme(String name, String surname, String patronymic) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from UserinfoEntity u where u.name = :name and u.patronymic = :patronymic and u.surname = :surname");
+        query.setParameter("name", name);
+        query.setParameter("surname", surname);
+        query.setParameter("patronymic", patronymic);
+        Iterable<UserinfoEntity> entities = query.list();
+        return entities;
+    }
+
+    @Override
+    public void create(UserinfoEntity userEntity) {
         Session session = getCurrentSession();
         session.save(userEntity);
     }
 
     @Override
-    public void update(UserEntity userEntity) {
+    public void update(UserinfoEntity userEntity) {
         Session session = getCurrentSession();
         session.update(userEntity);
     }
 
     @Override
-    public void delete(UserEntity userEntity) {
+    public void delete(UserinfoEntity userEntity) {
         Session session = getCurrentSession();
         session.delete(userEntity);
     }

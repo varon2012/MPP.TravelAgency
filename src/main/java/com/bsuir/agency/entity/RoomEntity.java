@@ -13,22 +13,23 @@ public class RoomEntity {
     private BigDecimal price;
     private int roomNumber;
     private int hotelId;
+    private HotelEntity hotelByHotelId;
 
     @Id
-    @Column(name = "room_id")
+    @Column(name = "room_id", nullable = false)
     public int getRoomId() {
         return roomId;
     }
 
     public void setRoomId(int roomId) {
-        if (roomId < 1){
+        if (roomId < 0){
             throw new IllegalArgumentException();
         }
         this.roomId = roomId;
     }
 
     @Basic
-    @Column(name = "price")
+    @Column(name = "price", nullable = false, precision = 2)
     public BigDecimal getPrice() {
         return price;
     }
@@ -38,26 +39,26 @@ public class RoomEntity {
     }
 
     @Basic
-    @Column(name = "roomNumber")
+    @Column(name = "roomNumber", nullable = false)
     public int getRoomNumber() {
         return roomNumber;
     }
 
     public void setRoomNumber(int roomNumber) {
-        if (roomNumber < 1){
+        if (roomNumber < 0){
             throw new IllegalArgumentException();
         }
         this.roomNumber = roomNumber;
     }
 
     @Basic
-    @Column(name = "hotel_id")
+    @Column(name = "hotel_id", nullable = false)
     public int getHotelId() {
         return hotelId;
     }
 
     public void setHotelId(int hotelId) {
-        if (hotelId < 1){
+        if (hotelId < 0){
             throw new IllegalArgumentException();
         }
         this.hotelId = hotelId;

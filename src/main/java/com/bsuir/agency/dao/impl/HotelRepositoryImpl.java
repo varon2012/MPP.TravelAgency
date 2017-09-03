@@ -34,6 +34,18 @@ public class HotelRepositoryImpl extends BaseRepositoryImpl implements HotelRepo
     }
 
     @Override
+    public HotelEntity findByName(String name) {
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from HotelEntity h where h.name = :name");
+        query.setParameter("name", name);
+        List<HotelEntity> hotelEntities = query.list();
+        if (hotelEntities.size() == 0){
+            return null;
+        }
+        return hotelEntities.get(0);
+    }
+
+    @Override
     public Iterable<HotelEntity> findByStars(int stars) {
         Session session = getCurrentSession();
         Query query = session.createQuery("from HotelEntity h where h.stars = :stars");

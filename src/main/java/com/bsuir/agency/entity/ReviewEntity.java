@@ -21,7 +21,7 @@ public class ReviewEntity {
     }
 
     public void setReviewId(int reviewId) {
-        if (reviewId < 1){
+        if (reviewId < 0){
             throw new IllegalArgumentException();
         }
         this.reviewId = reviewId;
@@ -54,6 +54,9 @@ public class ReviewEntity {
     }
 
     public void setUserId(int userId) {
+        if (userId < 0){
+            throw new IllegalArgumentException();
+        }
         this.userId = userId;
     }
 
@@ -64,7 +67,7 @@ public class ReviewEntity {
     }
 
     public void setTourId(int tourId) {
-        if (tourId < 1){
+        if (tourId < 0){
             throw new IllegalArgumentException();
         }
         this.tourId = tourId;

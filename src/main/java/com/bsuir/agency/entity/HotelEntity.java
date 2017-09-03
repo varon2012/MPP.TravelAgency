@@ -58,7 +58,7 @@ public class HotelEntity {
     }
 
     @Basic
-    @Column(name = "representativeId", nullable = false)
+    @Column(name = "representative_Id", nullable = false)
     public int getRepresentativeId() {
         return representativeId;
     }
